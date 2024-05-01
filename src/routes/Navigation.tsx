@@ -1,8 +1,8 @@
 import {
-  BrowserRouter as Router,
-  Switch,
+  BrowserRouter,
+  Routes,
   Route,
-  NavLink
+  Link
 } from 'react-router-dom';
 
 import logo from '../logo.svg';
@@ -10,37 +10,32 @@ import ShoppingPage from '../02-component-patterns/pages/ShoppingPage';
 
 export const Navigation = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="main-layout">
         <nav>
           <img src={logo} alt="React Logo" />
           <ul>
             <li>
-              <NavLink to="/" activeClassName="nav-active" exact>Shopping</NavLink>
+              <Link to="/" className="nav-active" >Shopping</Link>
             </li>
             <li>
-              <NavLink to="/about" activeClassName="nav-active" exact>About</NavLink>
+              <Link to="/about" className="nav-active" >About</Link>
             </li>
             <li>
-              <NavLink to="/users" activeClassName="nav-active" exact>Users</NavLink>
+              <Link to="/users" className="nav-active" >Users</Link>
             </li>
           </ul>
         </nav>
-
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <h1>About</h1>
-          </Route>
-          <Route path="/users">
-            <h1>Users</h1>
-          </Route>
-          <Route path="/">
+        <Routes>
+          <Route path="/about" element={<h1>HOLA MUNDO</h1>} />
+          <Route path="/users" />
+          <Route path="/" element={
             <ShoppingPage />
-          </Route>
-        </Switch>
+          } />
+        </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
