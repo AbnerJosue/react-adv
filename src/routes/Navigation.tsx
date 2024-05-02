@@ -16,7 +16,7 @@ export const Navigation = () => {
           <img src={logo} alt="React Logo" />
           <ul>
             <li>
-              <Link to="/" className="nav-active" >Shopping</Link>
+              <Link to="/" className="nav-active"  >Shopping</Link>
             </li>
             <li>
               <Link to="/about" className="nav-active" >About</Link>
